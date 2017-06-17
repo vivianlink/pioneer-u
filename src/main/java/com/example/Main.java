@@ -77,7 +77,7 @@ public class Main {
 
   @RequestMapping("/map")
   String hello(Map<String, Object> model){
-    return "hello";
+    return "map";
   }
 
   @Bean
