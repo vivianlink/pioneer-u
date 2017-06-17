@@ -33,6 +33,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Objects;
 
 @Controller
 @SpringBootApplication
@@ -52,7 +53,6 @@ public class Main {
   String index() {
     return "index";
   }
-  String map() {return "map ";}
 
   @RequestMapping("/db")
   String db(Map<String, Object> model) {
@@ -73,6 +73,11 @@ public class Main {
       model.put("message", e.getMessage());
       return "error";
     }
+  }
+
+  @RequestMapping("/map")
+  String hello(Map<String, Object> model){
+    return "hello";
   }
 
   @Bean
