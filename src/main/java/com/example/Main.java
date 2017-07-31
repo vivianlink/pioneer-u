@@ -80,6 +80,11 @@ public class Main {
     return "map";
   }
 
+  @RequestMapping("/sceneA")
+  String sceneA(Map<String, Object> model){
+    return "sceneA";
+  }
+
   @Bean
   public DataSource dataSource() throws SQLException {
     if (dbUrl == null || dbUrl.isEmpty()) {

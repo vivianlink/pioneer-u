@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'index')}">
+
+<body>
+<script
+        src="http://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+
+<div align="center">
+    <div id="player"></div>
+
+    <div id="map-wrapper" style="display:none;">
+        <div class="map-header">
+            <h2>
+                What character do you want to be?
+            </h2>
+
+            <br>
+            A. David (click <strong>Lecture Hall</strong>)
+            <br>
+            B. Miles (click <strong>Crime Scene</strong>)
+        </div>
+
+        <img id="map" src="/map_pic.png" usemap="#scenesmap">
+    </div>
+
+    <script type="text/javascript" src="/maphighlight.js"></script>
+
+    <map name="scenesmap">
+        <area alt="Lecture Hall" title="Lecture Hall" href="sceneB.html" shape="rect" coords="54,57,325,253" />
+        <area alt="Restroom" title="Restroom" href="#" shape="rect" coords="211,335,348,390" />
+        <area alt="Computer Lab" title="Computer Lab" href="#" shape="rect" coords="461,57,552,363" />
+        <area alt="Crime Scene" title="Crime Scene" href="sceneE.html" shape="rect" coords="461,584,598,669" />
+    </map>
+
+
+    <script src="http://www.youtube.com/player_api"></script>
+
+    <script>
+        $('img').mapster({
+            fillColor: 'ffffff'
+        });
+
+        // create youtube player
+        var player;
+        function onYouTubePlayerAPIReady() {
+            player = new YT.Player('player', {
+                width: '640',
+                height: '390',
+                videoId: '_jHpnb-QmTA',
+                events: {
+                    onReady: onPlayerReady,
+                    onStateChange: onPlayerStateChange
+                }
+            });
+        }
+
+        // autoplay video
+        function onPlayerReady(event) {
+            event.target.playVideo();
+        }
+
+        // when video ends
+        function onPlayerStateChange(event) {
+            if(event.data === 0) {
+                $("#player").hide();
+
+                $("#map-wrapper").show();
+            }
+        }
+
+        $('#scenesmap area').each(function() {
+            var id = $(this).attr('id');
+            $(this).mouseover(function() {
+                $('#overlay'+id).show();
+
+            });
+
+            $(this).mouseout(function() {
+                var id = $(this).attr('id');
+                $('#overlay'+id).hide();
+            });
+
+        });
+    </script>
+</div>
+</body>
+</html>
