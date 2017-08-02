@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'index')}">
+
+<body>
+<script
+        src="http://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+
+<div align="center">
+    <div id="player"></div>
+
+    <script src="http://www.youtube.com/player_api"></script>
+
+    <script>
+        // create youtube player
+        var player;
+        function onYouTubePlayerAPIReady() {
+            player = new YT.Player('player', {
+                width: '640',
+                height: '390',
+                videoId: '_jHpnb-QmTA',
+                events: {
+                    onReady: onPlayerReady
+                }
+            });
+        }
+
+        // autoplay video
+        function onPlayerReady(event) {
+            event.target.playVideo();
+        }
+    </script>
+</div>
+</body>
+</html>

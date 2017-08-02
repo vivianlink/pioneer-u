@@ -85,6 +85,51 @@ public class Main {
     return "sceneA";
   }
 
+  @RequestMapping("/sceneB")
+  String sceneB(Map<String, Object> model){
+    return "sceneB";
+  }
+
+  @RequestMapping("/sceneC")
+  String sceneC(Map<String, Object> model){
+    return "sceneC";
+  }
+
+  @RequestMapping("/sceneD")
+  String sceneD(Map<String, Object> model){
+    return "sceneD";
+  }
+
+  @RequestMapping("/sceneE")
+  String sceneE(Map<String, Object> model){
+    return "sceneE";
+  }
+
+  @RequestMapping("/sceneF")
+  String sceneF(Map<String, Object> model){
+    return "sceneF";
+  }
+
+  @RequestMapping("/sceneG")
+  String sceneG(Map<String, Object> model){
+    return "sceneG";
+  }
+
+  @RequestMapping("/ending1")
+  String ending1(Map<String, Object> model){
+    return "ending1";
+  }
+
+  @RequestMapping("/ending2")
+  String ending2(Map<String, Object> model){
+    return "ending2";
+  }
+
+  @RequestMapping("/ending3")
+  String ending3(Map<String, Object> model){
+    return "ending3";
+  }
+
   @Bean
   public DataSource dataSource() throws SQLException {
     if (dbUrl == null || dbUrl.isEmpty()) {
