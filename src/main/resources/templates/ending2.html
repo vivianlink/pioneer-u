@@ -10,6 +10,9 @@
 <div align="center">
     <div id="player"></div>
 
+    <br>
+    <a style="border-radius: 20px; border-color: black; margin-top: 40px; display: none;" type="button" class="btn btn-lg btn-default" id="back-to-map-btn" href="/map.html">BACK TO MAP</a>
+
     <script src="https://www.youtube.com/player_api"></script>
 
     <script>
@@ -21,7 +24,8 @@
                 height: '390',
                 videoId: '_jHpnb-QmTA',
                 events: {
-                    onReady: onPlayerReady
+                    onReady: onPlayerReady,
+                    onStateChange: onPlayerStateChange
                 }
             });
         }
@@ -29,6 +33,13 @@
         // autoplay video
         function onPlayerReady(event) {
             event.target.playVideo();
+        }
+
+        // when video ends
+        function onPlayerStateChange(event) {
+            if(event.data === 0) {
+                $("#back-to-map-btn").show();
+            }
         }
     </script>
 </div>
