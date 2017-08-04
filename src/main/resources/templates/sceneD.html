@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'index')}">
 
-<body>
+<body style="background-color: black">
+
+<br><br>
+
 <script
         src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
@@ -40,8 +43,8 @@
         var player;
         function onYouTubePlayerAPIReady() {
             player = new YT.Player('player', {
-                width: '640',
-                height: '390',
+                width: '960',
+                height: '585',
                 videoId: 'wDZLixTc6Hg',
                 events: {
                     onReady: onPlayerReady,

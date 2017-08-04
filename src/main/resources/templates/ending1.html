@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'index')}">
 
-<body>
+<body style="background-color: black">
 <script
         src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
         crossorigin="anonymous"></script>
 
-<h2 style="padding: 20px; font-family: Pacifico">Ending 1</h2>
+<h2 style="padding: 20px; font-family: Pacifico; color: white; text-align: center">The Ending</h2>
 
 
 <div align="center">
     <div id="player"></div>
 
     <br>
-    <a style="border-radius: 20px; border-color: black; margin-top: 40px; display: none;" type="button" class="btn btn-lg btn-default" id="back-to-map-btn" href="/map.html">BACK TO START</a>
+    <a style="border-radius: 20px; border-color: black; margin-top: 40px; display: none;" type="button" class="btn btn-lg btn-default" id="back-to-map-btn" href="/map.html">Play again</a>
 
     <script src="https://www.youtube.com/player_api"></script>
 
@@ -23,8 +23,8 @@
         var player;
         function onYouTubePlayerAPIReady() {
             player = new YT.Player('player', {
-                width: '640',
-                height: '390',
+                width: '960',
+                height: '585',
                 videoId: 'HSGbvnK3ci8',
                 events: {
                     onReady: onPlayerReady,
